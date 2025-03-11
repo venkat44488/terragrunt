@@ -1,0 +1,42 @@
+name: Terraform Plan
+
+on:
+  push:
+    branches:
+      - main  # Run Terraform Plan on push to main
+
+jobs:
+  terraform-plan:
+    name: Terraform Plan
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.5.x
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::794038223971:role/githubrole2
+          aws-region: us-east-1  # Change based on your AWS region
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Format
+        run: terraform fmt -check
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Plan
+        run: terraform plan -out=tfplan
