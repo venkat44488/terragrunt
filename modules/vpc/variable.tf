@@ -1,17 +1,11 @@
-# variable "vpc_cidr" {}
-
-variable "vpc_cidr" {
-  description = "CIDR block for the VPC"
-  type        = string
-}
-
-variable "private_subnets" {
-  description = "List of private subnet CIDRs"
-  type        = list(string)
-}
-
-variable "igw_enabled" {
-  description = "Flag to enable an Internet Gateway"
-  type        = bool
-  default     = true
-}
+variable "product_name" {}
+variable "environment" {}
+variable "aws_region" {}
+variable "vpc_cidr" {}
+variable "enable_dns_support" { default = true }
+variable "enable_dns_hostnames" { default = true }
+variable "public_subnets" { type = list(string) }
+variable "private_subnets" { type = list(string) }
+variable "availability_zones" { type = list(string) }
+variable "enable_nat_gateway" { default = true }
+variable "enable_vpc_flow_logs" { default = false }
