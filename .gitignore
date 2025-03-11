@@ -1,0 +1,7 @@
+# Terraform & Terragrunt state files
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terragrunt-cache/
+terraform.tfvars
+*.lock.hcl
