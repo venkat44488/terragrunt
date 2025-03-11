@@ -34,7 +34,7 @@ jobs:
           role-to-assume: arn:aws:iam::794038223971:role/githubrole2
           aws-region: us-east-1
 
-
-
       - name: Terraform Apply
-        run: terragrunt run-all apply --terragrunt-working-dir envs/dev --auto-approve
+        working-directory: envs/dev
+        run: terragrunt run-all apply --auto-approve --terragrunt-non-interactive
+        
