@@ -4,7 +4,9 @@ include "root" {
 
 
 terraform {
-  source = "../../modules/ec2"  # Change to your desired Terraform module location
+  # source = "../../modules/ec2"  # Change to your desired Terraform module location
+    source = "../../../modules/ec2"
+
 }
 
 
