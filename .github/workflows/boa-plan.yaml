@@ -29,6 +29,12 @@ jobs:
           role-to-assume: arn:aws:iam::794038223971:role/githubrole2
           aws-region: us-east-1  # Change based on your AWS region
 
+      - name: Print Current Directory
+        run: pwd  # Prints the current directory
+  
+      - name: List Files (Debugging)
+        run: ls -R  # Lists all files to check if terragrunt.hcl exists
+        
       - name: Terraform Init
         run: terraform init
 
