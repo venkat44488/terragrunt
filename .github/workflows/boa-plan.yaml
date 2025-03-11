@@ -3,7 +3,7 @@ name: Terraform Plan
 on:
   push:
     branches:
-      - main  # Run Terraform Plan on push to main
+      - master  # Run Terraform Plan on push to main
 
 jobs:
   terraform-plan:
