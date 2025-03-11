@@ -36,5 +36,7 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
+
       - name: Terraform Destroy
-        run: terragrunt run-all destroy --terragrunt-working-dir envs/dev --auto-approve
+        working-directory: envs/dev
+        run: terragrunt run-all destroy --auto-approve --terragrunt-non-interactive
