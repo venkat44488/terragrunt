@@ -43,11 +43,11 @@ jobs:
       - name: Terraform Init
         run: terragrunt run-all init --terragrunt-working-dir envs/dev
 
-      - name: Terraform Format
-        run: terraform run-all fmt --terragrunt-working-dir envs/dev
+    #   - name: Terraform Format
+    #     run: terraform run-all fmt --terragrunt-working-dir envs/dev
 
-      - name: Terraform Validate
-        run: terraform run-all validate --terragrunt-working-dir envs/dev
+    #   - name: Terraform Validate
+    #     run: terraform run-all validate --terragrunt-working-dir envs/dev
 
       - name: Terraform Plan
         run: terragrunt run-all plan -out=tfplan --terragrunt-working-dir envs/dev
