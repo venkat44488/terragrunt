@@ -1,0 +1,14 @@
+name: print github reference
+
+on:
+  push:
+    branches:
+      - master  # Run Terraform Plan on push to main
+  
+  jobs:
+    versioned-tag-job:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Print versioned tag
+          run: echo "Triggered by tag: ${{ github.ref }}"
+  
