@@ -37,7 +37,8 @@ jobs:
           name: my-data
       - name: Read data
         run: cat data.txt
-
+      - name: Print GitHub Reference
+        run : echo "Hellow rorld"
   terraform-plan:
     name: Terraform Plan
     runs-on: ubuntu-latest
