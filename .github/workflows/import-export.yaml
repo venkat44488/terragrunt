@@ -6,9 +6,6 @@ on:
       - master  # Run Terraform Plan on push to main
 
 jobs:
-  terraform-plan:
-    name: Terraform Plan
-    runs-on: ubuntu-latest
   job1:
     runs-on: ubuntu-latest
     steps:
