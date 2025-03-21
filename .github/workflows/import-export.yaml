@@ -1,0 +1,32 @@
+name: Terraform Plan
+
+on:
+  push:
+    branches:
+      - master  # Run Terraform Plan on push to main
+
+jobs:
+  terraform-plan:
+    name: Terraform Plan
+    runs-on: ubuntu-latest
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Save data
+        run: echo "Hello World!" > data.txt
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-data
+          path: data.txt
+
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: my-data
+      - name: Read data
+        run: cat data.txt
