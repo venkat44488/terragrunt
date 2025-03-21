@@ -1,4 +1,4 @@
-name: Terraform Plan
+name: Upload-download-artifact
 
 on:
   workflow_dispatch:
